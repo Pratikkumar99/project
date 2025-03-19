@@ -1,0 +1,258 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0f7f9;
+  color: #333;
+  padding: 20px;
+}
+.header {
+  height: 8vh;
+  width: 100%;
+  background-color: #e5eaee;
+  display: flex;
+  border-radius: 20px;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(161, 159, 159);
+}
+.header h1 {
+  color: #0ca5ec;
+  margin-right: -11vw;
+}
+.header ul {
+  list-style: none;
+  display: inline;
+}
+a {
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+  cursor: pointer;
+  font-weight: 600;
+}
+a:hover {
+  background-color: #0ca5ec;
+  color: white;
+  border-radius: 10px;
+}
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+button:hover {
+  background-color: #0056b3;
+}
+.manageicons {
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.manageicons i {
+  margin-right: 20px;
+  padding: 9px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.fa-download {
+  background-color: rgb(218, 232, 241);
+  color: black;
+}
+.fa-heart {
+  border: 1px solid #0ca5ec;
+  color: #0ca5ec;
+}
+.fa-square-share-nodes {
+  color: white;
+  background-color: #13c958;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #005f73;
+}
+/* TIMELINE WRAPPER & VERTICAL LINE */
+.timeline {
+  position: relative;
+  padding: 20px 0 40px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 100%;
+  background-color: #005f73;
+  z-index: 1;
+}
+/* ========== ROW: BIG NUMBER LEFT, CONTENT RIGHT ========== */
+.row-left {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-between;
+  margin: 60px 0;
+}
+.row-left .left-side {
+  width: 40%;
+  margin-right: 5%;
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+}
+.row-left .right-side {
+  width: 40%;
+  margin-left: 5%;
+}
+/* ========== ROW: CONTENT LEFT, BIG NUMBER RIGHT ========== */
+.row-right {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-between;
+  margin: 60px 0;
+}
+.row-right .left-side {
+  width: 40%;
+  margin-right: 5%;
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+}
+.row-right .right-side {
+  width: 40%;
+  margin-left: 5%;
+}
+/* ========== CONNECTOR SQUARE ========== */
+.connector-square {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border: 4px solid #005f73;
+  border-radius: 4px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* For row-left, show horizontal line only to the left */
+.row-left .connector-square::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -70px;
+  width: 70px;
+  height: 2px;
+  background: #005f73;
+}
+.row-left .connector-square::after {
+  display: none;
+}
+/* For row-right, show horizontal line only to the right */
+.row-right .connector-square::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -70px;
+  width: 70px;
+  height: 2px;
+  background: #005f73;
+}
+.row-right .connector-square::before {
+  display: none;
+}
+/* ========== BIG STEP NUMBER ========== */
+.big-number {
+  font-size: 130px;
+  font-weight: bold;
+  color: #005f73;
+  background: rgba(0, 95, 115, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  width: fit-content;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* ========== STEP CONTENT BOX ========== */
+.step-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+.step-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #005f73;
+  margin-bottom: 10px;
+}
+.step-description {
+  font-size: 16px;
+  color: #333;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .row-left,
+  .row-right {
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0;
+  }
+  .row-left .left-side,
+  .row-left .right-side,
+  .row-right .left-side,
+  .row-right .right-side {
+    width: 90%;
+    margin: 0;
+    text-align: center;
+    padding: 10px 0;
+  }
+  /* Hide the connector square on mobile */
+  .connector-square {
+    display: none;
+  }
+  /* Add a horizontal line below the big number */
+  .big-number::after {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 2px;
+    background: #005f73;
+    margin: 10px auto;
+  }
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .big-number {
+    font-size: 80px;
+    padding: 10px;
+  }
+}
